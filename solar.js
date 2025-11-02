@@ -122,13 +122,27 @@ function calculate() {
   showScreen("results");
 }
 
-// --- REPORT FUNCTION ---
-function sendReport() {
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  if (!name || !email) {
-    alert("Please enter your name and email.");
-    return;
-  }
-  alert("✅ Report sent! Check your email for details soon.");
-}
+
+// function sendReport() {
+//   const name = document.getElementById("name").value;
+//   const email = document.getElementById("email").value;
+
+//   if (!name || !email) {
+//     alert("Iltimos ism va email kiriting.");
+//     return;
+//   }
+
+//   const templateParams = {
+//     user_name: name,
+//     user_email: email
+//   };
+
+//   emailjs.send("service_rp6zdon", "template_ymiz6ww", templateParams)
+//     .then(function() {
+//       alert("✅ Report jo‘natildi! Emailingizni tekshiring.");
+//     }, function(error) {
+//       alert("❌ Xatolik yuz berdi. Qayta urinib ko‘ring.");
+//       console.log(error);
+//     });
+// }
+
