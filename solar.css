@@ -2,7 +2,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #74b9ff, #38424a);
+              background: linear-gradient(135deg, #ffffff, #27ae60, #2c3e50);
             color: #333;
             min-height: 100vh;
             display: flex;
@@ -12,7 +12,7 @@
         .container {
             max-width: 600px;
             width: 100%;
-            background: white;
+           background-color: #f0fff5;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             overflow: hidden;
@@ -34,21 +34,24 @@
             margin-bottom: 20px;
             line-height: 1.6;
         }
-        button {
-            padding: 12px 24px;
-            margin: 10px;
-            background: linear-gradient(135deg, #00b894, #00cec9);
-            color: white;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
+       button {
+    padding: 12px 24px;
+    margin: 10px;
+    background: linear-gradient(135deg, #27ae60, #2ecc71, #2c3e50); /* Green → Light Green → Navy */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(135deg, #2c3e50, #27ae60, #2ecc71); /* Hover gradient */
+}
+
         input, select {
             width: calc(100% - 20px);
             padding: 12px;
