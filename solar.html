@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="solar.css">
+  <title>Solar Savings Calculator</title>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Onboarding -->
+    <div id="onboarding" class="screen active">
+      <h1>Discover Your Solar Savings Potential</h1>
+      <p>Step 1: Enter your details → Step 2: See your savings → Step 3: Get a detailed report</p>
+      <button onclick="showScreen('dataEntry1')">Get Started</button>
+    </div>
+
+    <!-- Step 1 -->
+    <div id="dataEntry1" class="screen">
+      <div class="step-indicator">
+        <div class="step active">1</div><div class="step">2</div><div class="step">3</div><div class="step">4</div>
+      </div>
+      <h2>Select Building Type</h2>
+      <p>This helps us tailor the calculation to your setup.</p>
+      <select id="buildingType">
+        <option value="apartment">Apartment Building</option>
+        <option value="house">Private House</option>
+      </select>
+      <button onclick="nextFrom1()">Next</button>
+    </div>
+
+    <!-- Step 2 (updated region-based) -->
+    <div id="dataEntry2" class="screen">
+      <div class="step-indicator">
+        <div class="step active">1</div><div class="step active">2</div><div class="step">3</div><div class="step">4</div>
+      </div>
+      <h2>Select Your Region</h2>
+      <p>Your region determines the solar insolation level for accurate savings.</p>
+      
+      <select id="region" onchange="showRegionInfo()">
+        <option value="">-- Select your region --</option>
+        <option value="Middle East">Middle East</option>
+        <option value="North America">North America</option>
+        <option value="Europe">Europe</option>
+        <option value="South Asia">South Asia</option>
+        <option value="East Asia">East Asia</option>
+        <option value="Africa">Africa</option>
+        <option value="South America">South America</option>
+        <option value="Australia">Australia & Oceania</option>
+      </select>
+      
+      <p id="regionInfo" style="margin-top:10px;color:#555;"></p>
+      <button onclick="nextFrom2()">Next</button>
+    </div>
+
+    <!-- Step 3 -->
+    <div id="dataEntry3" class="screen">
+      <div class="step-indicator">
+        <div class="step active">1</div><div class="step active">2</div><div class="step active">3</div><div class="step">4</div>
+      </div>
+      <h2>Number of Apartments</h2>
+      <p>This helps estimate total energy consumption.</p>
+      <select id="apartments">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+      </select>
+      <button onclick="nextFrom3()">Next</button>
+    </div>
+
+    <!-- Step 4 -->
+    <div id="dataEntry4" class="screen">
+      <div class="step-indicator">
+        <div class="step active">1</div><div class="step active">2</div><div class="step active">3</div><div class="step active">4</div>
+      </div>
+      <h2>Average Monthly Electricity Bill</h2>
+      <p>For the entire building. This is key to calculating your savings.</p>
+      <input type="number" id="bill" placeholder="Enter amount in $ (e.g., 500)">
+      <button onclick="calculate()">Calculate Savings</button>
+    </div>
+
+    <!-- Results -->
+    <div id="results" class="screen">
+      <h1>Your Solar Savings Estimate</h1>
+      <div class="chart"><span id="chartPercent">70%</span></div>
+      <div class="results-grid">
+        <div class="result-item"><h3>Annual Savings</h3><p>$<span id="savings">0</span></p></div>
+        <div class="result-item"><h3>Approximate Cost</h3><p>$<span id="cost">0</span></p></div>
+        <div class="result-item"><h3>Payback Period</h3><p><span id="payback">0</span> years</p></div>
+        <div class="result-item"><h3>Monthly Savings</h3><p>$<span id="monthly">0</span></p></div>
+      </div>
+      <button onclick="showScreen('saveResults')">Get Detailed Report</button>
+    </div>
+
+    <!-- Save Results -->
+    <div id="saveResults" class="screen">
+      <h2>Save Your Calculation</h2>
+      <p>Enter your details to receive a personalized report.</p>
+      <input type="text" id="name" placeholder="Your Name">
+      <input type="email" id="email" placeholder="Your Email">
+      <input type="tel" id="phone" placeholder="Phone (optional)">
+      <button onclick="sendReport()">Send Report</button>
+    </div>
+
+  </div>
+
+  <script src="solar.js"></script>
+</body>
+</html>

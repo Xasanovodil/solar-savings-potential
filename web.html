@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYAS Solar Impact Initiative</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- Font Awesome for icons -->
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0; /* Light text for dark background */
+            background-color: #1a1a1a; /* Dark charcoal */
+            overflow-x: hidden;
+           
+            
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+           
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header */
+        header {
+            background-color: #2a2a2a; /* Slightly lighter dark */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            transition: background-color 0.3s;
+            
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00ff88; /* Electric green */
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #e0e0e0;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00aaff; /* Deep blue */
+            transform: scale(1.1);
+        }
+
+        /* Hero */
+    #hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 0 2rem;
+    text-align: center;
+    position: relative;
+
+    background-image: 
+        linear-gradient(135deg, rgba(6, 6, 6, 1.1) 0%, rgba(42,42,42, 0.9) 50%, rgba(0,61,77, 1.1) 100%),
+        url("https://cleanpower.org/wp-content/uploads/2022/04/AdobeStock_357208082-scaled.jpeg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+
+        .hero-content {
+            flex: 1;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #00ff88;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #00aaff;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .btn.primary {
+            background-color: #00ff88;
+            color: #1a1a1a;
+        }
+
+        .btn.primary:hover {
+            background-color: #00cc66;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 255, 136, 0.4);
+        }
+
+        .btn.secondary {
+            background-color: #00aaff;
+            color: #1a1a1a;
+        }
+
+        .btn.secondary:hover {
+            background-color: #0088cc;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 170, 255, 0.4);
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+            font-size: 5rem;
+            color: #00ff88;
+            animation: pulse 2s infinite;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+            background-color: #1a1a1a;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #00ff88;
+            text-shadow: 0 0 5px rgba(0, 255, 136, 0.3);
+        }
+
+        section h3 {
+            color: #00aaff;
+        }
+
+        /* Why Solar */
+        .benefits {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .benefit {
+            text-align: center;
+            width: 30%;
+            margin-bottom: 2rem;
+            background-color: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .benefit:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 255, 136, 0.2);
+        }
+
+        .benefit i {
+            font-size: 3rem;
+            color: #00ff88;
+            margin-bottom: 1rem;
+        }
+
+        /* Activities */
+        .activities-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .activity {
+            text-align: center;
+            width: 22%;
+            margin-bottom: 2rem;
+            background-color: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .activity:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 170, 255, 0.2);
+        }
+
+        .activity i {
+            font-size: 2rem;
+            color: #00aaff;
+            margin-bottom: 1rem;
+        }
+
+        /* Team */
+        .team-members {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .member {
+            text-align: center;
+            width: 30%;
+            margin-bottom: 2rem;
+            background-color: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 255, 136, 0.2);
+        }
+
+        .member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 3px solid #00ff88;
+        }
+
+        /* Join */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+            transition: border-color 0.3s;
+        }
+
+        form input:focus, form textarea:focus {
+            border-color: #00ff88;
+            outline: none;
+        }
+
+        form button {
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2a2a2a;
+            text-align: center;
+            padding: 1rem;
+            color: #888;
+            border-top: 1px solid #444;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .benefits, .activities-list, .team-members {
+                flex-direction: column;
+                align-items: center;
+            }
+            .benefit, .activity, .member {
+                width: 80%;
+            }
+            nav ul {
+                display: none; /* Simple hide for mobile; add hamburger menu if needed */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-sun"></i> NYAS Solar Impact Initiative
+            </div>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#why-solar">Why Solar</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#join">Contact us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Empowering Communities With Solar Energy</h1>
+            <p>Calculate your solar savings</p>
+            <div class="buttons">
+
+
+
+
+
+
+
+
+
+
+                <a href="solar.html" class="btn primary">Try it</a>
+                <!-- <a href="#join" class="btn secondary">Join Us</a> -->
+
+
+
+
+            </div>
+        </div>
+        <div class="hero-image">
+            <i class="fas fa-solar-panel"></i> <!-- Placeholder icon; replace with image if needed -->
+        </div>
+    </section>
+
+    <section id="about" class="fade-in">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>[Brief story of founding by NYAS student team: e.g., Founded in 2023 by a group of high-school students from NYAS, the initiative started as a school project to address climate change through solar energy awareness.]</p>
+            <h3>Mission & Vision</h3>
+            <p>Our mission is to drive climate impact through youth leadership, promoting solar energy adoption to reduce emissions and foster innovation. Our vision is a world where young people lead sustainable change for generations to come.</p>
+        </div>
+    </section>
+
+    <section id="why-solar" class="fade-in">
+        <div class="container">
+            <h2>Why Solar?</h2>
+            <div class="benefits">
+                <div class="benefit">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Clean Energy</h3>
+                    <p>Solar power provides renewable energy without harmful emissions, helping combat climate change.</p>
+                </div>
+                <div class="benefit">
+                    <i class="fas fa-cloud"></i>
+                    <h3>Lower Emissions</h3>
+                    <p>Reduces greenhouse gases, contributing to a healthier planet.</p>
+                </div>
+                <div class="benefit">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Cost Savings</h3>
+                    <p>Long-term savings on energy bills and potential government incentives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="activities" class="fade-in">
+        <div class="container">
+            <h2>Our Activities</h2>
+            <div class="activities-list">
+                <div class="activity">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Workshops</h3>
+                    <p>Educational sessions on solar installation and benefits.</p>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Awareness Campaigns</h3>
+                    <p>Social media and community events to spread solar knowledge.</p>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-school"></i>
+                    <h3>School Outreach</h3>
+                    <p>Programs in schools to engage students in sustainability.</p>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Community Partnerships</h3>
+                    <p>Collaborations with local organizations for solar projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="fade-in">
+        <div class="container">
+            <h2>Our Team</h2>
+            <div class="team-members">
+                <div class="member">
+                    <img src="https://picsum.photos/200/200?random=1" alt="[Student Name 1]">
+                    <h3>[Student Name 1]</h3>
+                    <p>Founder & Lead Organizer</p>
+                </div>
+                <div class="team-members">
+                <div class="member">
+                    <img src="https://picsum.photos/200/200?random=1" alt="[Student Name 1]">
+                    <h3>[Student Name 1]</h3>
+                    <p>Founder & Lead Organizer</p>
+                </div>
+                <div class="team-members">
+                <div class="member">
+                    <img src="https://picsum.photos/200/200?random=1" alt="[Student Name 1]">
+                    <h3>[Student Name 1]</h3>
+                    <p>Founder & Lead Organizer</p>
+                </div>
+                   <div class="member">
+                    <img src="https://picsum.photos/200/200?random=1" alt="[Student Name 1]">
+                    <h3>[Student Name 1]</h3>
+                    <p>Founder & Lead Organizer</p>
+                </div>
+                <div class="team-members">
+                <div class="member">
+                    <img src="https://picsum.photos/200/200?random=1" alt="[Student Name 1]">
+                    <h3>[Student Name 1]</h3>
+                    <p>Founder & Lead Organizer</p>
+                </div>
+                <div class="member">
+                    <img src="https://picsum.photos/200/200?random=2" alt="[Student Name 2]">
+                    <h3>[Student Name 2]</h3>
+                    <p>Education Coordinator</p>
+                </div>
+                <div class="member">
+                    <img src="https://picsum.photos/200/200?random=3" alt="[Student Name 3]">
+                    <h3>[Student Name 3]</h3>
+                    <p>Outreach Specialist</p>
+                </div>
+                <!-- Add more members as needed -->
+            </div>
+        </div>
+    </section>
+
+    <section id="join" class="fade-in">
+        <div class="container">
+            <h2>Join Us</h2>
+            <p>Get involved in our youth-led efforts to promote solar energy and climate innovation.</p>
+            <form action="#" method="post">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="How can we help?" required></textarea>
+                <button type="submit" class="btn primary">Submit</button>
+            </form>
+            <p>Or email us at: <a href="mailto:info@nyassolar.org">info@nyassolar.org</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 NYAS Solar Impact Initiative. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade-in animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
