@@ -95,7 +95,7 @@
         }
 
         nav ul li a:hover {
-            color: #00aaff; /* Deep blue */
+            color: orange; /* Deep blue */
             transform: scale(1.1);
         }
 
@@ -323,22 +323,50 @@
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            #hero {
-                flex-direction: column;
-                text-align: center;
-            }
-            .benefits, .activities-list, .team-members {
-                flex-direction: column;
-                align-items: center;
-            }
-            .benefit, .activity, .member {
-                width: 80%;
-            }
-            nav ul {
-                display: none; /* Simple hide for mobile; add hamburger menu if needed */
-            }
-        }
+       /* Desktop styles... (sizdagi kod) */
+
+
+/* ✅ Mobile Fix */
+@media (max-width: 768px) {
+
+    /* Nav har doim tepada turadi */
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #000; /* Orqa fon (o'zingizga mos rang qo'ying) */
+        z-index: 999;
+        padding: 10px 0;
+    }
+
+    /* Nav menyu yopiladi */
+    nav ul {
+        display: none;
+    }
+
+    /* Hero nav ostidan pastda boshlanishi uchun padding */
+    body {
+        padding-top: 60px; /* Nav balandligi */
+    }
+
+    /* Hero section mobil ko‘rinish */
+    #hero {
+        flex-direction: column;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .benefits, .activities-list, .team-members {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .benefit, .activity, .member {
+        width: 80%;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -451,42 +479,45 @@
             <h2>Our Team</h2>
             <div class="team-members">
                 <div class="member">
-                    <img src="https://picsum.photos/200/200?random=1" alt="[Student Name 1]">
-                    <h3>[Student Name 1]</h3>
-                    <p>Founder & Lead Organizer</p>
+                    <img src="https://static.wikia.nocookie.net/scykadia/images/a/a9/Replace-with-image-name.jpg/revision/latest?cb=20230406083445" alt="Student Name 1">
+                    <h3>Brisa Torres</h3>
+                    <p>Team Mentor</p>
                 </div>
+
+              <div class="team-members">
+                <div class="member">
+                    <img src="https://static.wikia.nocookie.net/scykadia/images/a/a9/Replace-with-image-name.jpg/revision/latest?cb=20230406083445" alt="Student Name 1">
+                    <h3>Anvar</h3>
+                    <p>Team Leader</p>
+                </div>
+
                 <div class="team-members">
                 <div class="member">
-                    <img src="https://picsum.photos/200/200?random=1" alt="[Student Name 1]">
-                    <h3>[Student Name 1]</h3>
-                    <p>Founder & Lead Organizer</p>
+                    <img src="https://static.wikia.nocookie.net/scykadia/images/a/a9/Replace-with-image-name.jpg/revision/latest?cb=20230406083445" alt="Student Name 1">
+                    <h3>öykü</h3>
+                    <p>Lead Organizer and content creator</p>
                 </div>
-                <div class="team-members">
-                <div class="member">
-                    <img src="https://picsum.photos/200/200?random=1" alt="[Student Name 1]">
-                    <h3>[Student Name 1]</h3>
-                    <p>Founder & Lead Organizer</p>
-                </div>
+                
                    <div class="member">
-                    <img src="https://picsum.photos/200/200?random=1" alt="[Student Name 1]">
-                    <h3>[Student Name 1]</h3>
-                    <p>Founder & Lead Organizer</p>
+                    <img src="https://static.wikia.nocookie.net/scykadia/images/a/a9/Replace-with-image-name.jpg/revision/latest?cb=20230406083445" alt="Student Name 1">
+                    <h3>Arailym</h3>
+                    <p>Team Designer</p>  
                 </div>
                 <div class="team-members">
                 <div class="member">
-                    <img src="https://picsum.photos/200/200?random=1" alt="[Student Name 1]">
-                    <h3>[Student Name 1]</h3>
-                    <p>Founder & Lead Organizer</p>
+                    <img src="https://static.wikia.nocookie.net/scykadia/images/a/a9/Replace-with-image-name.jpg/revision/latest?cb=20230406083445" alt="Student Name 1">
+                    <h3>Shahda Tarek</h3>
+                    <p>Researcher</p>
                 </div>
                 <div class="member">
-                    <img src="https://picsum.photos/200/200?random=2" alt="[Student Name 2]">
-                    <h3>[Student Name 2]</h3>
-                    <p>Education Coordinator</p>
+                    <img src="https://static.wikia.nocookie.net/scykadia/images/a/a9/Replace-with-image-name.jpg/revision/latest?cb=20230406083445" alt="Student Name 2">
+                    <h3>Rina Chan</h3>
+                    <p>Researcher</p>
                 </div>
                 <div class="member">
-                    <img src="https://picsum.photos/200/200?random=3" alt="[Student Name 3]">
-                    <h3>[Student Name 3]</h3>
-                    <p>Outreach Specialist</p>
+                    <img src="https://static.wikia.nocookie.net/scykadia/images/a/a9/Replace-with-image-name.jpg/revision/latest?cb=20230406083445" alt="Student Name 3">
+                    <h3>Odil Xasanov</h3>
+                    <p>Web creator</p>
                 </div>
                 <!-- Add more members as needed -->
             </div>
@@ -494,21 +525,36 @@
     </section>
 
     <section id="join" class="fade-in">
-        <div class="container">
-            <h2>Join Us</h2>
-            <p>Get involved in our youth-led efforts to promote solar energy and climate innovation.</p>
-            <form action="#" method="post">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="How can we help?" required></textarea>
-                <button type="submit" class="btn primary">Submit</button>
-            </form>
-            <p>Or email us at: <a href="mailto:info@nyassolar.org">info@nyassolar.org</a></p>
-        </div>
+    <div class="container">
+    <h2>Have a Question?</h2>
+    <p>We welcome inquiries from students, educators, partners, and anyone interested in youth-led climate and solar innovation. Please reach out and our team will respond as soon as possible.</p>
+    
+   <form
+  action="https://formspree.io/f/mdkpygjd"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email" placeholder="(Optional)">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit" style="background-color: orange; color: white; width: 200px; height: 40px;">Send</button>
+</form>
+
+    <!-- <p>If you prefer email, contact us at:
+        <br>
+        <a href="mailto:info@nyassolar.org">info@nyassolar.org</a>
+    </p> -->
+</div>
+
     </section>
 
     <footer>
-        <p>&copy; 2023 NYAS Solar Impact Initiative. All rights reserved.</p>
+        <p>&copy; 2025 NYAS Solar Impact Initiative. All rights reserved.</p>
     </footer>
 
     <script>
@@ -532,7 +578,9 @@
         });
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+
+
     </script>
 </body>
-
 </html>
