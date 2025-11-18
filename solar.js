@@ -20,7 +20,12 @@ function showRegionInfo() {
   const infoBox = document.getElementById("regionInfo");
 
   const insolationData = {
+     
     "Middle East": { level: 6.5, text: "Excellent solar potential — desert sun year-round ☀️" },
+      "Central Asia": { 
+    level: 5.0, 
+    text: "High solar potential — strong sunshine across Kazakhstan, Uzbekistan & Turkmenistan ☀️⛰️" 
+  },
     "North America": { level: 5.0, text: "Good sunlight availability in most states 🌤️" },
     "Europe": { level: 3.8, text: "Moderate sunlight — efficient systems still viable 🌦️" },
     "South Asia": { level: 5.5, text: "Strong sunlight, perfect for solar rooftops 🔆" },
@@ -70,6 +75,7 @@ function calculate() {
   // --- Realistic Insolation Data (kWh/m²/day) ---
   const insolationMap = {
     "Middle East": 6.5,
+     "Central Asia": 5.0,
     "North America": 5.0,
     "Europe": 3.8,
     "South Asia": 5.5,
@@ -81,7 +87,8 @@ function calculate() {
 
   // --- Region-based Cost per Apartment (USD, realistic 2025 est.) ---
   const costPerAptMap = {
-    "Middle East": 1500,   // lower cost (high sunlight, lower install)
+    "Middle East": 1500, 
+    "Central Asia": 1000,    // lower cost (high sunlight, lower install)
     "North America": 5000, // standard residential cost
     "Europe": 3000,
     "South Asia": 3500,
