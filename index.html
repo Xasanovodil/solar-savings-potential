@@ -4,69 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NYAS Solar Impact Initiative</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- Font Awesome for icons -->
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Lato:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
-        /* Global Styles */
+        /* ---------------------------
+           GLOBAL STYLES + FONTS
+        --------------------------- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-           
-            
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            background-color: #fffef7; /* Brighter, sunnier cream background */
+            color: #2e4d3a; /* Slightly adjusted for better contrast */
+            font-family: 'Lato', sans-serif;
             line-height: 1.6;
-            color: #e0e0e0; /* Light text for dark background */
-            background-color: #272626; /* Dark charcoal */
             overflow-x: hidden;
-           
-            
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
         }
 
         .container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: auto;
             padding: 0 20px;
-           
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        a {
+            text-decoration: none;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Header */
+        /* ---------------------------
+           HEADER + NAVBAR
+        --------------------------- */
         header {
-            /* background-color: #2a2a2a;  */
-            background-color:  rgba(91, 91, 91, 0.5);
-            opacity: 1.5;
-            box-shadow: 0 2px 10px rgba(91, 91, 91, 0.5);
             position: fixed;
-            width: 100%;
             top: 0;
-            z-index: 100;
-            transition: background-color 0.3s;
-            
+            width: 100%;
+            background-color: rgba(255, 248, 220, 0.95); /* Brighter, more translucent background */
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            z-index: 1000;
         }
 
         nav {
@@ -78,8 +65,8 @@
 
         .logo {
             font-size: 1.5rem;
-            font-weight: bold;
-            color: #00ff88; /* Electric green */
+            font-weight: 700;
+            color: #4CAF50; /* Brighter green for logo */
         }
 
         nav ul {
@@ -92,136 +79,110 @@
         }
 
         nav ul li a {
-            text-decoration: none;
-            color: #e0e0e0;
-            transition: color 0.3s, transform 0.3s;
+            color: #2e4d3a;
+            font-weight: 600;
+            transition: 0.3s;
         }
 
         nav ul li a:hover {
-            color: orange; /* Deep blue */
-            transform: scale(1.1);
+            color: #4CAF50; /* Brighter hover */
+            transform: scale(1.05);
         }
 
-        /* Hero */
-    #hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100vh;
-    padding: 0 2rem;
-    text-align: center;
-    position: relative;
+        /* ---------------------------
+           HERO SECTION
+        --------------------------- */
+        #hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            height: 100vh;
+            background-image: 
+                linear-gradient(135deg, rgba(145,225,215,0.8), rgba(30,104,66,0.7), rgba(34,62,70,0.5)), /* Adapted gradient: brighter white, vibrant green, softened dark blue for adaptability */
+                url("https://cleanpower.org/wp-content/uploads/2022/04/AdobeStock_357208082-scaled.jpeg");
+            background-size: cover;
+            background-position: center;
+            animation: fadeIn 2s ease-in-out;
+        }
 
-    background-image: 
-        linear-gradient(135deg, rgba(6, 6, 6, 0.9) 0%, rgba(42,42,42, 0.5) 50%, rgba(0,61,77, 1.1) 100%),
-        url("https://cleanpower.org/wp-content/uploads/2022/04/AdobeStock_357208082-scaled.jpeg");
-
-    background-size: cover;
-    background-position: center;
-}
-
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
         .hero-content {
             flex: 1;
-            z-index: 1;
         }
 
         .hero-content h1 {
             font-size: 3rem;
+            color: #2ecc71; /* Brighter green */
             margin-bottom: 1rem;
-            color: #00ff88;
-            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         .hero-content p {
-            font-size: 1.2rem;
+            font-size: 1.6rem;
+             color: #ffd058; /* iliq, sariq-yashil rang, fon bilan kontrastli */
+              text-shadow: 0 0 12px rgba(255, 208, 88, 0.6); /* yorqin va energiyali “glow” */
             margin-bottom: 2rem;
-            color: #00aaff;
         }
 
         .buttons {
             display: flex;
             gap: 1rem;
-            justify-content: center;
+            justify-content: start;
         }
 
         .btn {
-            padding: 0.75rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            padding: 12px 28px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
         }
 
-        /* .btn.primary {
-            background-color: #00ff88;
-            color: #1a1a1a;
+        .primary {
+            background: linear-gradient(90deg, #4CAF50, #81C784); /* Brighter gradient */
         }
 
-        .btn.primary:hover {
-            background-color: #00cc66;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 255, 136, 0.4);
-        } */
-
-        .btn.primary {
-  padding: 12px 28px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
-  background: linear-gradient(90deg, #27ae60, #2c3e50);
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-/* Hover effect */
-.btn.primary:hover {
-  background: linear-gradient(90deg, #2c3e50, #27ae60);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
-}
-
-
-        .btn.secondary {
-            background-color: #00aaff;
-            color: #1a1a1a;
-        }
-
-        .btn.secondary:hover {
-            background-color: #0088cc;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 170, 255, 0.4);
+        .primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            background: linear-gradient(90deg, #81C784, #4CAF50);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
         }
 
         .hero-image {
-            flex: 1;
-            text-align: center;
             font-size: 5rem;
-            color: #00ff88;
-            animation: pulse 2s infinite;
+            color: #FFEB3B; /* Bright yellow for solar icon */
+            animation: bounce 2s infinite;
         }
 
-        /* Sections */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* ---------------------------
+           SECTION BASE STYLE
+        --------------------------- */
         section {
             padding: 4rem 0;
-            background-color: #1a1a1a;
         }
 
         section h2 {
             text-align: center;
             margin-bottom: 2rem;
-            color: #00ff88;
-            text-shadow: 0 0 5px rgba(0, 255, 136, 0.3);
+            color: #4CAF50; /* Brighter heading color */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
-        section h3 {
-            color: #00aaff;
-        }
-
-        /* Why Solar */
+        /* ---------------------------
+           WHY SOLAR
+        --------------------------- */
         .benefits {
             display: flex;
             justify-content: space-around;
@@ -229,57 +190,63 @@
         }
 
         .benefit {
-            text-align: center;
             width: 30%;
-            margin-bottom: 2rem;
-            background-color: #2a2a2a;
+            background-color: #fffde7; /* Brighter, sunny background */
             padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 2rem;
+            border: 3px solid #FFEB3B; /* Bright yellow border */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: 0.3s;
         }
 
         .benefit:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 255, 136, 0.2);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
         .benefit i {
             font-size: 3rem;
-            color: #00ff88;
+            color: #FF9800; /* Bright orange for icons */
             margin-bottom: 1rem;
         }
 
-        /* Activities */
+        /* ---------------------------
+           ACTIVITIES
+        --------------------------- */
         .activities-list {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             flex-wrap: wrap;
         }
 
         .activity {
-            text-align: center;
-            width: 22%;
-            margin-bottom: 2rem;
-            background-color: #2a2a2a;
+            width: 23%;
+            background-color: #fffde7; /* Consistent bright background */
             padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 2rem;
+            border: 3px solid #FFEB3B; /* Bright border */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: 0.3s;
         }
 
         .activity:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 170, 255, 0.2);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
         .activity i {
-            font-size: 2rem;
-            color: #00aaff;
+            font-size: 2.5rem;
+            color: #FFC107; /* Bright yellow for activities */
             margin-bottom: 1rem;
         }
 
-        /* Team */
+        /* ---------------------------
+           TEAM
+        --------------------------- */
         .team-members {
             display: flex;
             justify-content: space-around;
@@ -287,328 +254,286 @@
         }
 
         .member {
-            text-align: center;
             width: 30%;
-            margin-bottom: 2rem;
-            background-color: #2a2a2a;
+            background-color: #fffde7; /* Bright background */
             padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 2rem;
+            border: 3px solid #FFEB3B; /* Bright border */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: 0.3s;
         }
 
         .member:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 255, 136, 0.2);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
         .member img {
             width: 150px;
             height: 150px;
+            object-fit: cover;
             border-radius: 50%;
             margin-bottom: 1rem;
-            border: 3px solid #00ff88;
+            border: 4px solid #81C784; /* Brighter green border */
         }
 
-        /* Join */
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        form input, form textarea {
+        /* ---------------------------
+           CONTACT FORM
+        --------------------------- */
+        form input,
+        form textarea {
             width: 100%;
             padding: 0.75rem;
             margin-bottom: 1rem;
-            border: 1px solid #444;
-            border-radius: 5px;
-            background-color: #2a2a2a;
-            color: #e0e0e0;
-            transition: border-color 0.3s;
+            background-color: #fffbf0; /* Brighter input background */
+            border: 2px solid #FFEB3B; /* Bright border */
+            border-radius: 8px;
+            transition: 0.3s;
         }
 
-        form input:focus, form textarea:focus {
-            border-color: #00ff88;
+        form input:focus,
+        form textarea:focus {
+            border-color: #4CAF50; /* Focus to bright green */
             outline: none;
+            box-shadow: 0 0 8px rgba(76,175,80,0.5);
         }
 
-        form button {
+        .submit {
             width: 100%;
-            transition: all 0.3s;
+            padding: 12px;
+            font-size: 1.1rem;
+            background: linear-gradient(90deg, #4CAF50, #81C784); /* Bright gradient */
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
-        /* Footer */
+        .submit:hover {
+            background: linear-gradient(90deg, #81C784, #4CAF50);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        /* ---------------------------
+           FOOTER
+        --------------------------- */
         footer {
-            background-color: #2a2a2a;
             text-align: center;
             padding: 1rem;
-            color: #888;
-            border-top: 1px solid #444;
+            background-color: #fffde7; /* Bright footer background */
+            color: #2e4d3a;
+            border-top: 3px solid #FFEB3B; /* Bright border */
         }
 
-        /* Responsive */
-       /* Desktop styles... (sizdagi kod) */
-     .submit{
-        width: 200px;
-        height: 45px;
-  padding: 12px 28px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
-  background: linear-gradient(90deg, #27ae60, #2c3e50);
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
+        /* ---------------------------
+           MOBILE RESPONSIVE
+        --------------------------- */
+        @media (max-width: 768px) {
 
-/* Hover effect */
-.submit:hover {
-  background: linear-gradient(90deg, #2c3e50, #27ae60);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
-}
+            #hero {
+                flex-direction: column;
+                text-align: center;
+            }
 
+            .benefit, .activity, .member {
+                width: 90%;
+            }
 
-
-
-
-       
-
-/* ✅ Mobile Fix */
-@media (max-width: 768px) {
-
-    /* Nav har doim tepada turadi */
-    nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: #000; /* Orqa fon (o'zingizga mos rang qo'ying) */
-        z-index: 999;
-        padding: 10px 0;
-    }
-
-    /* Nav menyu yopiladi */
-    nav ul {
-        display: none;
-    }
-
-    /* Hero nav ostidan pastda boshlanishi uchun padding */
-    body {
-        padding-top: 60px; /* Nav balandligi */
-    }
-
-    /* Hero section mobil ko‘rinish */
-    #hero {
-        flex-direction: column;
-        text-align: center;
-        margin-top: 10px;
-    }
-
-    .benefits, .activities-list, .team-members {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .benefit, .activity, .member {
-        width: 80%;
-    }
-}
-
+            nav ul {
+                display: none;
+            }
+        }
     </style>
 </head>
+
 <body>
+
+    <!-- HEADER -->
     <header>
         <nav>
-            <div class="logo">
-                <i class="fas fa-sun"></i> NYAS Solar Impact Initiative
-            </div>
+            <div class="logo"><i class="fas fa-sun"></i> NYAS Solar</div>
             <ul>
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#why-solar">Why Solar</a></li>
                 <li><a href="#activities">Activities</a></li>
                 <li><a href="#team">Team</a></li>
-                <li><a href="#join">Contact us</a></li>
+                <li><a href="#join">Contact</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- HERO -->
     <section id="hero">
         <div class="hero-content">
             <h1>Empowering Communities With Solar Energy</h1>
             <p>Calculate your solar savings</p>
+
             <div class="buttons">
-
-
-
-
-
-
-
-
-
-
                 <a href="solar.html" class="btn primary">Try it</a>
-                <!-- <a href="#join" class="btn secondary">Join Us</a> -->
-
-
-
-
             </div>
         </div>
+
         <div class="hero-image">
-            <i class="fas fa-solar-panel"></i> <!-- Placeholder icon; replace with image if needed -->
+            <i class="fas fa-solar-panel"></i>
         </div>
     </section>
 
-    <section id="about" class="fade-in">
+    <!-- ABOUT -->
+    <section id="about">
         <div class="container">
             <h2>About Us</h2>
-            <p>Welcome to the NYAS (New Academy of Sciences) Solar Impact Initiative! Our team is passionate about 
-    creating a positive impact through solar energy and promoting sustainable living. As part of the New Academy of Sciences, we work together to develop innovative projects and practical tools that help individuals, families, and communities understand the benefits of solar energy. By making it easy to calculate potential savings and see the environmental impact, we aim to inspire people to take meaningful steps toward a cleaner, brighter future. 
-        Join us as we explore the power of solar energy and work 
-        toward a more sustainable world for everyone.</p>
+            <p>
+                Welcome to the NYAS Solar Impact Initiative! Our team develops innovative tools to help families and communities understand the value of solar energy.
+            </p>
             <h3>Mission & Vision</h3>
-            <p>Our mission is to drive climate impact through youth leadership, promoting solar energy adoption to reduce emissions and foster innovation. Our vision is a world where young people lead sustainable change for generations to come.</p>
+            <p>
+                Our mission is to drive climate impact through youth-led innovation.
+            </p>
         </div>
     </section>
 
-    <section id="why-solar" class="fade-in">
+    <!-- WHY SOLAR -->
+    <section id="why-solar">
         <div class="container">
             <h2>Why Solar?</h2>
             <div class="benefits">
+
                 <div class="benefit">
                     <i class="fas fa-leaf"></i>
                     <h3>Clean Energy</h3>
-                    <p>Solar power provides renewable energy without harmful emissions, helping combat climate change.</p>
+                    <p>Solar energy is renewable and eco-friendly.</p>
                 </div>
+
                 <div class="benefit">
                     <i class="fas fa-cloud"></i>
                     <h3>Lower Emissions</h3>
-                    <p>Reduces greenhouse gases, contributing to a healthier planet.</p>
+                    <p>Reduced greenhouse gases.</p>
                 </div>
+
                 <div class="benefit">
                     <i class="fas fa-dollar-sign"></i>
                     <h3>Cost Savings</h3>
-                    <p>Long-term savings on energy bills and potential government incentives.</p>
+                    <p>Long-term savings on electricity.</p>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <section id="activities" class="fade-in">
+    <!-- ACTIVITIES -->
+    <section id="activities">
         <div class="container">
             <h2>Our Activities</h2>
+
             <div class="activities-list">
+
                 <div class="activity">
                     <i class="fas fa-chalkboard-teacher"></i>
                     <h3>Workshops</h3>
-                    <p>Educational sessions on solar installation and benefits.</p>
                 </div>
+
                 <div class="activity">
                     <i class="fas fa-bullhorn"></i>
                     <h3>Awareness Campaigns</h3>
-                    <p>Social media and community events to spread solar knowledge.</p>
                 </div>
+
                 <div class="activity">
                     <i class="fas fa-school"></i>
                     <h3>School Outreach</h3>
-                    <p>Programs in schools to engage students in sustainability.</p>
                 </div>
+
                 <div class="activity">
                     <i class="fas fa-handshake"></i>
                     <h3>Community Partnerships</h3>
-                    <p>Collaborations with local organizations for solar projects.</p>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <section id="team" class="fade-in">
+    <!-- TEAM -->
+    <section id="team">
         <div class="container">
             <h2>Our Team</h2>
+
             <div class="team-members">
+
                 <div class="member">
-                    <img src="photo_2025-11-07_19-51-38.jpg" alt="Student Name 1">
+                    <img src="photo_2025-11-07_19-51-38.jpg">
                     <h3>Brisa Torres</h3>
                     <p>Team Mentor</p>
                 </div>
 
-              <div class="team-members">
                 <div class="member">
-                    <img src="photo_2025-11-07_19-49-32.jpg" alt="Student Name 1">
+                    <img src="photo_2025-11-07_19-49-32.jpg">
                     <h3>Anvar</h3>
                     <p>Team Leader</p>
                 </div>
 
-                <div class="team-members">
                 <div class="member">
-                    <img src="photo_2025-11-07_19-54-56.jpg" alt="Student Name 1">
-                    <h3>öykü</h3>
-                    <p>Lead Organizer and content creator</p>
+                    <img src="photo_2025-11-07_19-54-56.jpg">
+                    <h3>Öykü</h3>
+                    <p>Organizer</p>
                 </div>
-                
-                   <div class="member">
-                    <img src="photo_2025-11-07_19-50-35.jpg" alt="Student Name 1">
+
+                <div class="member">
+                    <img src="photo_2025-11-07_19-50-35.jpg">
                     <h3>Arailym</h3>
-                    <p>Team Designer</p>  
+                    <p>Designer</p>
                 </div>
-                <div class="team-members">
+
                 <div class="member">
-                    <img src="photo_2025-11-07_19-51-01.jpg" alt="Student Name 1">
-                    <h3>Shahda Tarek</h3>
+                    <img src="photo_2025-11-07_19-51-01.jpg">
+                    <h3>Shahda</h3>
                     <p>Researcher</p>
                 </div>
+
                 <div class="member">
-                    <img src="photo_2025-11-07_19-50-06.jpg" alt="Student Name 2">
-                    <h3>Rina Chan</h3>
+                    <img src="photo_2025-11-07_19-50-06.jpg">
+                    <h3>Rina</h3>
                     <p>Researcher</p>
                 </div>
+
                 <div class="member">
-                    <img src="ODIL.jpg" alt="Student Name 3">
+                    <img src="ODIL.jpg">
                     <h3>Odil Xasanov</h3>
-                    <p>Web creator</p>
+                    <p>Web Creator</p>
                 </div>
-                <!-- Add more members as needed -->
+
             </div>
         </div>
     </section>
 
-    <section id="join" class="fade-in">
-    <div class="container">
-    <h2>Have a Question?</h2>
-    <p>We welcome inquiries from students, educators, partners, and anyone interested in youth-led climate and solar innovation. Please reach out and our team will respond as soon as possible.</p>
-    
-   <form
-  action="https://formspree.io/f/mdkpygjd"
-  method="POST"
->
-  <label>
-    Your email:
-    <input type="email" name="email" placeholder="(Optional)">
-  </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button class="submit" type="submit">Send</button>
-</form>
+    <!-- CONTACT -->
+    <section id="join">
+        <div class="container">
+            <h2>Have a Question?</h2>
 
-    <!-- <p>If you prefer email, contact us at:
-        <br>
-        <a href="mailto:info@nyassolar.org">info@nyassolar.org</a>
-    </p> -->
-</div>
-
+            <form action="https://formspree.io/f/mdkpygjd" method="POST">
+                <input type="email" name="email" placeholder="Your email (optional)">
+                <textarea name="message" placeholder="Your message"></textarea>
+                <button class="submit">Send</button>
+            </form>
+        </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <p>&copy; 2025 NYAS Solar Impact Initiative. All rights reserved.</p>
     </footer>
+
+</body>
+</html>
+
+</body>
+</html>
+
 
     <script>
         // Smooth scrolling for navigation links
