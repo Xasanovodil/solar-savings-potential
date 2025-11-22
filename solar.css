@@ -2,7 +2,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #39553f 0%, #497248 100%);
+        background: linear-gradient(135deg, #45694e 0%, #9dd8b0 100%);
             color: #333;
             min-height: 100vh;
             display: flex;
@@ -128,5 +128,6 @@ button:hover {
         .step.active {
             background: #0984e3;
         }
+
 
 
